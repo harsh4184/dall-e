@@ -16,6 +16,14 @@ import yaml
 from discord import Embed
 from discord.ext import commands
 
+from os import environ
+
+from dotenv import load_dotenv
+
+load_dotenv()
+
+token = environ["TOKEN"]
+
 """ Load the configuration file """
 with open("data.yaml") as f:
     c = yaml.safe_load(f)
@@ -56,7 +64,8 @@ class DallEDiscordBot(commands.Bot):
     """
 
     def __init__(self, command_prefix, self_bot) -> None:
-        commands.Bot.__init__(self, command_prefix=command_prefix, self_bot=self_bot)
+        commands.Bot.__init__(
+            self, command_prefix=command_prefix, self_bot=self_bot)
         self.add_commands()
 
     def create_embed(self, guild) -> Embed:
@@ -68,7 +77,8 @@ class DallEDiscordBot(commands.Bot):
         footer = self.get_footer()
 
         embed = discord.Embed(title=footer[0], color=footer[2])
-        embed.set_author(name="https://huggingface.co", url="https://huggingface.co/spaces/dalle-mini/dalle-mini")
+        embed.set_author(name="https://huggingface.co",
+                         url="https://huggingface.co/spaces/dalle-mini/dalle-mini")
 
         embed.set_thumbnail(url=footer[1])
         embed.set_footer(text=footer[0], icon_url=footer[1])
@@ -107,7 +117,8 @@ class DallEDiscordBot(commands.Bot):
             for j in range(0, 3):
                 im = Image.open(images[index].path)
                 im.thumbnail((width, height))
-                new_im.paste(im, (i * (width + spacing), text_height + j * (height + spacing)))
+                new_im.paste(im, (i * (width + spacing),
+                             text_height + j * (height + spacing)))
                 index += 1
 
         img_draw = ImageDraw.Draw(new_im)
@@ -207,4 +218,4 @@ async def background_task() -> None:
 
 bot = DallEDiscordBot(command_prefix=c['bot_prefix'], self_bot=False)
 bot.loop.create_task(background_task())
-bot.run(c['discord_token'])
+bot.run(token)
