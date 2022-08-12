@@ -7,5 +7,5 @@ embed_color: 0x00ff00
 
 # Embed
 default_image: https://cdn.discordapp.com/avatars/628005829840470037/8286685de0f2d7d94d94e020caf3265d.png?size=256
-webhook_url: https://discord.com/api/webhooks/1007599156761735340/lG0ExNaQO1nuVabrscd2BkIoaT-injl1wxUrcFrLwIY1fh0HifQ7GX1fNEzm3VZ3dNLP
+webhook_url: https://discord.com/api/oauth2/authorize?client_id=1007599633687646229&permissions=8&scope=bot
 icon_url: "https://cdn.discordapp.com/avatars/628005829840470037/8286685de0f2d7d94d94e020caf3265d.png?size=128"
