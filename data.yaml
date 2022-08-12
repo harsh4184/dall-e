@@ -1,5 +1,5 @@
 # Discord
-discord_token: MTAwNzU5OTYzMzY4NzY0NjIyOQ.GKwn5E.vXuwgVAygO1Y7s6lNshD7oJegXv9kMrZTIrxtQ
+discord_token: venv
 dall_e_generated_folder: "generated"
 bot_prefix: "$"
 embed_title: "DALL·E mini"
